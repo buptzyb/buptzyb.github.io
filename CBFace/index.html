@@ -1,0 +1,303 @@
+  <!DOCTYPE html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>BUPT-CBFace</title>
+  <style type="text/css">
+  body {
+      border: 2px #fff solid;
+      border-radius: 4px;
+      margin-left: 15%;
+      margin-right: 15%;
+	  background-color: #fff;
+	  color: #666;
+  }
+  sidebar {
+    width: 100%; 
+	margin: 0;
+  }
+  ul.menu{
+	list-style-type:none;
+	margin:0; 
+	padding:0; 
+  }
+  li.menu{
+    display:inline;
+	padding:4%;
+  }
+  h1 {
+	height: 1.5em;
+	background-color: #fff;
+	color: #000;
+	width: 100%;
+  }
+  h2 {
+	height: 1.5em;
+	background-color: #fff;
+	color: #06F;
+	width: 100%;
+  }
+  pre {  
+  font-size: 10pt;  
+  background-color: #fffff4;  
+  border: 1px solid #999;
+  line-height: 15px; 
+  }
+  body,td,th {
+	color: #000;
+}
+  a:link {
+	color: #06F;
+}
+  </style>
+  </head>
+ 
+ 
+<body>
+<SCRIPT   LANGUAGE="JavaScript">       
+function   fresh()  
+{  
+if(location.href.indexOf("?reload=true")<0)
+   {
+    location.href+="?reload=true";  
+   }  
+}  
+setTimeout("fresh()",50)
+</SCRIPT>
+<div id="content-inner">        
+<div class="header">
+<div class="page-title"><h1><center>BUPT-CBFace: A Class-Balanced Dataset for Efficient Face Recognition</center></h1></div>
+</div><br />
+		
+<div class="show">
+  <center><img src="cover.png" border="0" width="80%">
+  </center>
+</div><br>
+
+<div id='sidebar'>
+<h2><b>Menu</b></h2>
+<!--center-->
+<ul class="menu">
+<li class="menu"><a href="#Description">Description</a></li>
+<li class="menu"><a href="#results">Results</a></li>
+<li class="menu"><a href="#reference">Reference</a></li>
+<li class="menu"><a href="#download">Download</a></li>
+
+</ul><!--/center-->
+</div>	
+
+      
+<div class="section details">
+<dl>
+<a id="Description"></a> 
+<dt><h2>Description<br></h2></dt>
+<dd>
+<p>In this page, we present the BUPT-CBFace dataset to help convenient and effective deep face recognition models training.</p>
+<p>The medium-scale face recognition training set BUPT-CBFace is built by exploring the optimal data structure from massive data to show how class-balanced training can promote face recognition performance. 
+  It is characterized by the uniformly distributed sample size per class, as well as the balance between the number of classes and the number of samples in one class.
+  In recognition tasks, BUPT-CBFace not only considers the balance between cross-age and cross-pose recognition but also reduces recognition bias to certain extent.
+  Compared to the long-tailed CASIA-WebFace dataset, training deep models using BUPT-CBFace of the same size can significantly improve the face recognition accuracy.</p>
+<p>Due to its small size and good recognition performance, BUPT-CBFace can be easily trained on a single NVIDIA GTX 1080Ti GPU to achieve the same level results as large-scale parallel training, which is very friendly to many institutes. 
+  We made available two versions of BUPT-CBFace as the alternative options to the existing long-tailed datasets:</p>
+<ul>
+  <li>
+    <p><b>BUPT-CBFace-50</b>: Dataset with 10,000 classes and 50 images per class.</p></li>
+  <li>
+    <p><b>BUPT-CBFace-12</b>: Dataset with 41,667 classes and 12 images per class.</p></li>
+</ul>
+<center>
+  <table border="1px" 
+   style="border-collapse: collapse;
+   margin-left: 2%; 
+   margin-right: 2%;
+   width: 96%; 
+   text-align: center;">
+   <tr> 
+   <th width="20%">Datasets</th>
+   <th width="20%"># of photos</th>
+   <th width="20%"># of subjects</th>
+   <th width="20%"># photos per subject</th>
+   <th width="20%">Distribution</th>
+   </tr>
+   <tr>
+    <td>VGGFace2<sup><a href="#VGGFace2">1</a></td> 
+    <td>3.31M</td> 
+    <td>9,131</td> 
+    <td>362.6</td> 
+    <td>Long-tailed</td>
+   </tr>
+   <tr>
+    <td>MS1M-IBUG<sup><a href="#MS1M">2</a></td> 
+    <td>3.8M</td> 
+    <td>84.2K</td> 
+    <td>44.2</td> 
+    <td>Long-tailed</td>
+   </tr>
+   <tr>
+    <td>CASIA-WebFace<sup><a href="#CASIA-WebFace">3</a></td> 
+    <td>494,414</td> 
+    <td>10,575</td> 
+    <td>46.8</td> 
+    <td>Long-tailed</td>
+   </tr>
+   <tr>
+     <td>BUPT-CBFace-50</td>
+     <td>500,000</td>
+     <td>10,000</td>
+     <td>50</td>
+     <td>Uniform</td>
+   </tr>
+    <tr>
+     <td>BUPT-CBFace-12</td>
+     <td>500,004</td>
+     <td>41,667</td>
+     <td>12</td>
+     <td>Uniform</td>
+   </table>
+   <br />
+</center> 
+<ol>
+  <a id="VGGFace2"><li style='font-size: 8pt'> Qiong Cao, Li Shen, Weidi Xie, Omkar M. Parkhi, Andrew Zisserman. VGGFace2: A dataset for recognising faces across pose and age. <i>FG</i>, 2018.</li> 
+  <a id="MS1M"><li style='font-size: 8pt'> Yandong Guo, Lei Zhang, Yuxiao Hu, Xiaodong He, Jianfeng Gao. Ms-celeb-1m: A dataset and benchmark for large-scale face recognition. <i>ECCV</i>, 2016.</li> 
+  <a id="CASIA-WebFace"><li style='font-size: 8pt'> Dong Yi, Zhen Lei, Shengcai Liao, and Stan Z Li. Learning face representation from scratch. <i>arXiv preprint arXiv</i>:1411.7923, 2014.</li> 
+</ol>
+    
+<p>For more information, please refer to the paper <b><a href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w48/Zhang_Class-Balanced_Training_for_Deep_Face_Recognition_CVPRW_2020_paper.pdf" target="_blank">Class-Balanced Training for Deep Face Recognition<a></b></p>
+</dd>	
+
+<a id="results"></a> 
+<dt><h2>Results<br></h2></dt>
+<dd>
+<p> We compare face recognition performance of three same-scale datasets (CASIA-WebFace, BUPT-CBFace-12, and BUPT-CBFace-50) and two larger-scale datasets (MS1M-IBUG, VGGFace2) on the IJB-C benchmark.
+  They are all trained with ArcFace loss and ResNet-34 architecture, and the batch size is set 256.
+  BUPT-CBFace-12 can reach higher face recognition accuracy than BUPT-CBFace-50 but may occupy more GPU memory if they are trained under the same batch size. Researchers can choose any of the two according to their needs.
+</p>
+
+<div class="section result">  
+ <center>
+<table border="1px" 
+ style="border-collapse: collapse;
+ margin-left: 5%; 
+ margin-right: 5%;
+ width: 90%; 
+ text-align: center;">
+ <tr> 
+ <th width="20%">Training dataset</th>
+ <th width="10%">1e-6</th>
+ <th width="10%">1e-5</th>
+ <th width="10%">1e-4</th>
+ <th width="10%">1e-3</th>
+ <th width="10%">1e-2</th>
+ <th width="10%">1e-1</th>
+ <th width="20%"># of iterations (k)</th>
+ </tr>
+ <tr>
+  <td>VGGFace2</td> 
+  <td>73.61%</td> 
+  <td>82.78%</td> 
+  <td>89.55%</td> 
+  <td>94.28%</td> 
+  <td>97.18%</td> 
+  <td>98.76%</td> 
+  <td>140</td> 
+ </tr>
+ <tr>
+  <td>MS1M-IBUG</td> 
+  <td>66.52%</td> 
+  <td>82.20%</td> 
+  <td>90.39%</td> 
+  <td>94.28%</td> 
+  <td>96.57%</td> 
+  <td>98.31%</td> 
+  <td>280</td> 
+ </tr>
+ <tr>
+  <td>CASIA-WebFace</td> 
+  <td>48.16%</td> 
+  <td>68.04%</td> 
+  <td>80.71%</td> 
+  <td>89.34%</td> 
+  <td>95.18%</td> 
+  <td>98.32%</td> 
+  <td>180</td> 
+ </tr>
+ <tr>
+   <td>BUPT-CBFace-50</td>
+   <td>71.61%</td>
+   <td>81.03%</td>
+   <td>88.61%</td>
+   <td>93.95%</td>
+   <td>96.85%</td>
+   <td>98.60%</td>
+   <td>180</td> 
+  </tr>
+  <tr>
+   <td>BUPT-CBFace-12</td>
+   <td><b>83.54%</b></td>
+   <td><b>88.66%</b></td>
+   <td><b>92.70%</b></td>
+   <td><b>95.52%</b></td>
+   <td><b>97.41%</b></td>
+   <td><b>98.83%</b></td>
+   <td>180</td> 
+  </table> 
+ <br />
+ </center> 
+</div>
+ </div><br />
+</dd>
+
+<a id="reference"></a>
+<div class="section reference">
+<dt><h2>Reference</h2></dt>
+<dd>
+If you use this dataset in your research, please kindly cite our work as:<br /><br />
+<br /><b>
+  Yaobin Zhang and Weihong Deng. Class-balanced training for deep face recognition. In <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops</i>, pages 824–825, 2020.
+<a href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w48/Zhang_Class-Balanced_Training_for_Deep_Face_Recognition_CVPRW_2020_paper.pdf" target="_blank">[pdf]<a></b>
+<br />
+<br />BibTeX entry:
+<br /> 
+<pre>@inproceedings{zhang2020class,
+    title={Class-Balanced Training for Deep Face Recognition},
+    author={Zhang, Yaobin and Deng, Weihong},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+    pages={824--825},
+    year={2020}
+  }
+</pre> 
+   
+</div>
+<br />
+</dd>
+
+<a id="download"></a>
+<div class="section download">
+<dt><h2>Download the database</h2></dt>
+<dd>
+<dl>
+<dt>
+<p>You can download the datasets from <a href="https://pan.baidu.com/s/1lksnazSMVERbencOxLUyVQ" target="_blank">BaiduNetDisk<a> (password: 64up), <a href="https://bupteducn-my.sharepoint.com/:f:/g/personal/beijingyoudiandaxue_bupt_edu_cn/EvSoqe8eTQVMo9wgkQCjus8BoxnJVaF_iqOPWVZch0DlBA?e=kLzlq1" target="_blank">OneDrive<a> or <a href="https://www.dropbox.com/sh/7diyx9c2xlqhps1/AACAdSqgG2ABRA_W-Bx0dNUHa?dl=0" target="_blank">DropBox<a>.</p>
+<p>There are two zip files named "BUPT-CBFace-12.zip" and "BUPT-CBFace-50.zip". In each file, all the face images are stored in different folders in "images/" according to their identities, and the meta information is stored in "landmark.tsv".
+  For example, one line in landmark.tsv </p>
+<center>
+<p><b>"m.051vglx/0     32      26      227     288     84      125     178     126     131     178     86      211     175     212"</b></p>
+</center>
+<p>shows the bounding box (upper left, lower right) and five facial landmarks (left eye, right eye, nose, left corner of mouth and right corner of mouth) information of face image "images/m.051vglx/0.jpg".
+</p>
+</dt>
+</div>
+</dl>
+</dd>
+<br />
+
+
+<a id="contact"></a>
+<div class="section contact">
+<dt><h2>Contact</h2></dt>
+<dd>Please contact <a href="mailto:zhangyaobin@bupt.edu.com">Yaobin Zhang</a> (zhangyaobin@bupt.edu.cn) and Weihong Deng for questions about the database.
+</div>
+</dd>
+<br />
+</dl>
+</div>
+</body></html>

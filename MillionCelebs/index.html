@@ -1,0 +1,301 @@
+  <!DOCTYPE html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>MillionCelebs</title>
+  <style type="text/css">
+  body {
+      border: 2px #fff solid;
+      border-radius: 4px;
+      margin-left: 15%;
+      margin-right: 15%;
+	  background-color: #fff;
+	  color: #666;
+  }
+  sidebar {
+    width: 100%; 
+	margin: 0;
+  }
+  ul.menu{
+	list-style-type:none;
+	margin:0; 
+	padding:0; 
+  }
+  li.menu{
+    display:inline;
+	padding:4%;
+  }
+  h1 {
+	height: 1.5em;
+	background-color: #fff;
+	color: #000;
+	width: 100%;
+  }
+  h2 {
+	height: 1.5em;
+	background-color: #fff;
+	color: #06F;
+	width: 100%;
+  }
+  pre {  
+  font-size: 10pt;  
+  background-color: #fffff4;  
+  border: 1px solid #999;
+  line-height: 15px; 
+  }
+  body,td,th {
+	color: #000;
+}
+  a:link {
+	color: #06F;
+}
+  </style>
+  </head>
+ 
+ 
+<body>
+<SCRIPT   LANGUAGE="JavaScript">       
+function   fresh()  
+{  
+if(location.href.indexOf("?reload=true")<0)
+   {
+    location.href+="?reload=true";  
+   }  
+}  
+setTimeout("fresh()",50)
+</SCRIPT>
+<div id="content-inner">        
+<div class="header">
+<div class="page-title"><h1><center>MillionCelebs: One Million Celebrity Face Recognition Dataset</center></h1></div>
+</div><br />
+		
+<div class="show">
+  <center><img src="cover.png" border="0" width="95%">
+  </center>
+</div><br>
+
+<div id='sidebar'>
+<h2><b>Menu</b></h2>
+<!--center-->
+<ul class="menu">
+<li class="menu"><a href="#Description">Description</a></li>
+<li class="menu"><a href="#results">Results</a></li>
+<li class="menu"><a href="#reference">Reference</a></li>
+<li class="menu"><a href="#download">Download</a></li>
+
+</ul><!--/center-->
+</div>	
+
+      
+<div class="section details">
+<dl>
+<a id="Description"></a> 
+<dt><h2>Description<br></h2></dt>
+<dd>
+<p>In this page, we present the MillionCelebs Face Recognition Dataset, which contains one million celebrity face images.</p>
+<p>The MillionCelebs face dataset is collected from the Internet Image Search Engine according to the Freebase celebrity name list released along with MS1M.
+  After preprocessing, 87.0M face images of 1M identities are collected. 
+  Figure shows detailed demography statistics. Different from many celebrity datasets in which most identities are actors, MillionCelebs contains a big range of professions. 
+  With the abundant statistical information, MillionCelebs has been used for selecting a subset to meet the research needs, such as the race bias and class imbalance problem in deep face recognition.</p>
+<div class="show">
+  <center><img src="demography.png" border="0" width="70%">
+  </center>
+</div><br>
+<p>The dataset is first published with paper <b><a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhang_Global-Local_GCN_Large-Scale_Label_Noise_Cleansing_for_Face_Recognition_CVPR_2020_paper.pdf" target="_blank">Global-Local GCN: Large-Scale Label Noise Cleansing for Face Recognition<a></b>, and is further refined in the following one year.
+  After merging with the GlintAsia dataset, we build up a cleaned version with 22.8M images of 719.6K identities.</p>
+<center>
+  <table border="1px" 
+   style="border-collapse: collapse;
+   margin-left: 2%; 
+   margin-right: 2%;
+   width: 96%; 
+   text-align: center;">
+   <tr> 
+   <th width="20%">Datasets</th>
+   <th width="20%">Year</th>
+   <th width="20%"># of photos</th>
+   <th width="20%"># of subjects</th>
+   <th width="20%"># photos per subject</th>
+   </tr>
+   <tr>
+    <td>CASIA-WebFace<sup><a href="#CASIA">1</a></td> 
+    <td>2014</td> 
+    <td>494,414</td> 
+    <td>10,575</td> 
+    <td>46.8</td> 
+   </tr>
+   <tr>
+    <td>MS-Celeb-1M<sup><a href="#MS1M">2</a></td>
+    <td>2016</td>
+    <td>10M</td>
+    <td>100,000</td>
+    <td>100</td>
+   </tr>
+   <tr>
+     <td>VGGFace2<sup><a href="#VGGFace2">3</a></td>
+     <td>2018</td>
+     <td>3.31M</td>
+     <td>9,131</td>
+     <td>362.6</td>
+   </tr>
+   <tr>
+    <td>Celeb-500k<sup><a href="#Celeb500k">4</a></td>
+    <td>2018</td>
+    <td>50M</td>
+    <td>500K</td>
+    <td>100</td>
+   </tr>
+   <tr>
+    <td>Celeb-500k (clean)</td>
+    <td>2018</td>
+    <td>25M</td>
+    <td>356K</td>
+    <td>70.2</td>
+   </tr>
+   <tr>
+     <td>MillionCelebs</td>
+     <td>2020</td>
+     <td>87M</td>
+     <td>1M</td>
+     <td>87</td>
+   </tr>
+   <tr>
+    <td>MillionCelebs (clean)</td>
+    <td>2020</td>
+    <td>22,823,433</td>
+    <td>719,613</td>
+    <td>31.7</td>
+  </tr>
+  </table>
+   <br />
+</center> 
+<ol>
+  <a id="CASIA"><li style='font-size: 8pt'> Dong Yi, Zhen Lei, Shengcai Liao, and Stan Z Li. Learning face representation from scratch. <i>arXiv preprint arXiv</i>:1411.7923, 2014.</li> 
+  <a id="MS1M"><li style='font-size: 8pt'> Yandong Guo, Lei Zhang, Yuxiao Hu, Xiaodong He, Jianfeng Gao. Ms-celeb-1m: A dataset and benchmark for large-scale face recognition. <i>ECCV</i>, 2016.</li> 
+  <a id="VGGFace2"><li style='font-size: 8pt'> Qiong Cao, Li Shen, Weidi Xie, Omkar M. Parkhi, Andrew Zisserman. VGGFace2: A dataset for recognising faces across pose and age. <i>FG</i>, 2018.</li> 
+  <a id="Celeb500k"><li style='font-size: 8pt'> Jiajiong Cao, Yingming Li, and Zhongfei Zhang. Celeb-500k: A large training dataset for face recognition. <i>ICIP</i>, 2018.</li> 
+</ol>
+    
+<p>For more information, please refer to the <b><a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhang_Global-Local_GCN_Large-Scale_Label_Noise_Cleansing_for_Face_Recognition_CVPR_2020_paper.pdf" target="_blank">paper<a></b> and <b><a href="https://openaccess.thecvf.com/content_CVPR_2020/supplemental/Zhang_Global-Local_GCN_Large-Scale_CVPR_2020_supplemental.pdf" target="_blank">supplementary material<a></b>.</p>
+</dd>	
+
+<a id="results"></a> 
+<dt><h2>Results<br></h2></dt>
+<dd>
+<p> MillionCelebs is trained with state-of-the-art SFace face recognition loss function on ResNet-124 network architecture with batch size 600 on 4 Titan X GPUs.
+  Table shows that MillionCelebs reaches state of the art on the IJB-C benchmark. The model will be available soon.
+</p>
+
+<div class="section result">  
+ <center>
+<table border="1px" 
+ style="border-collapse: collapse;
+ margin-left: 10%; 
+ margin-right: 10%;
+ width: 80%; 
+ text-align: center;">
+ <tr> 
+ <th width="28%">IJB-C</th>
+ <th width="12%">1e-6</th>
+ <th width="12%">1e-5</th>
+ <th width="12%">1e-4</th>
+ <th width="12%">1e-3</th>
+ <th width="12%">1e-2</th>
+ <th width="12%">1e-1</th>
+ </tr>
+ <tr>
+  <td>CASIA-WebFace</td> 
+  <td>48.16%</td> 
+  <td>68.04%</td> 
+  <td>80.71%</td> 
+  <td>89.34%</td> 
+  <td>95.18%</td> 
+  <td>98.32%</td> 
+ </tr>
+ <tr>
+   <td>MS-RetinaFace-t1<sup><a href="#retina">1</a></td>
+   <td>88.62%</td>
+   <td>94.37%</td>
+   <td>96.36%</td>
+   <td>97.57%</td>
+   <td>98.49%</td>
+   <td>99.04%</td>
+ </tr>
+  <tr>
+   <td>MillionCelebs (clean)</td>
+   <td><b>92.57%</b></td>
+   <td><b>96.50%</b></td>
+   <td><b>97.49%</b></td>
+   <td><b>98.27%</b></td>
+   <td><b>98.73%</b></td>
+   <td><b>99.12%</b></td>
+ </table> 
+ <br />
+ </center> 
+ <ol>
+  <a id="retina"><li style='font-size: 8pt'>Jiankang Deng, Jia Guo, Debing Zhang, Yafeng Deng, Xiangju Lu, Song Shi. Lightweight face recognition challenge. <i>ICCV Workshops</i>, 2019.</li> 
+</ol>
+
+</div>
+ </div><br />
+</dd>
+
+<a id="reference"></a>
+<div class="section reference">
+<dt><h2>Reference</h2></dt>
+<dd>
+If you use this dataset in your research, please kindly cite our work as:<br /><br />
+<br /><b>
+  Yaobin Zhang, Weihong Deng, Mei Wang, Jiani Hu, Xian Li, Dongyue Zhao, and Dongchao Wen. Global-local gcn: Large-scale label noise cleansing for face recognition. In <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</i>, pages 7731–7740, 2020.
+  <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhang_Global-Local_GCN_Large-Scale_Label_Noise_Cleansing_for_Face_Recognition_CVPR_2020_paper.pdf" target="_blank">[pdf]<a></b><b><a href="https://openaccess.thecvf.com/content_CVPR_2020/supplemental/Zhang_Global-Local_GCN_Large-Scale_CVPR_2020_supplemental.pdf" target="_blank">[supp]<a></b>
+<br />
+<br />BibTeX entry:
+<br /> 
+<pre>@inproceedings{zhang2020global,
+	title={Global-Local GCN: Large-Scale Label Noise Cleansing for Face Recognition},
+	author={Zhang, Yaobin and Deng, Weihong and Wang, Mei and Hu, Jiani and Li, Xian and Zhao, Dongyue and Wen, Dongchao},
+	booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+	pages={7731--7740},
+	year={2020}
+}
+</pre> 
+   
+</div>
+<br />
+</dd>
+
+<a id="download"></a>
+<div class="section download">
+<dt><h2>Download the database</h2></dt>
+<dd>
+<dl>
+<dt>
+<p>The full dataset is too large to put on the online disk, so we release a cleaned version on <a href="https://bupteducn-my.sharepoint.com/:f:/g/personal/beijingyoudiandaxue_bupt_edu_cn/EjZWjPJjB1lKl6cRKcHBwYwBAqrARC5BbnwDZV1b10MtIg?e=ShSbjh" target="_blank">OneDrive</a>.</p>
+<p>There are 14 tar.gz files and one lmk.tsv file. Afther downloading all files, unzip the 14 files sequentially. This will create folders in "/images". Every folder represents one class. 
+  The lmk.tsv records the face bounding box and landmark information. For example, one line in lmk.tsv</p>
+<center>
+<p><b>"0/0.jpg 6       13      99      129     32      64      74      52      60      80      46      104     81      94"</b></p>
+</center>
+<p>shows the bounding box (upper left, lower right) and five facial landmarks (left eye, right eye, nose, left corner of mouth and right corner of mouth) information of face image "images/0/0.jpg".
+</p>
+<p>The release of the complete noisy dataset is still under planning.</p>
+<!--
+<p>If anyone wants to apply for the full dataset, please contact <a href="mailto:zhangyaobin@bupt.edu.com">Yaobin Zhang</a> (zhangyaobin@bupt.edu.cn), and we will send you a mail address to mail a mobile hard drive (2TB at least) to us.
+  After receiving the disk, we will make a copy of the full dataset and send you back in 30 days.</p>
+-->
+  </dt>
+</div>
+</dl>
+</dd>
+<br />
+
+
+<a id="contact"></a>
+<div class="section contact">
+<dt><h2>Contact</h2></dt>
+<dd>Please contact <a href="mailto:zhangyaobin@bupt.edu.com">Yaobin Zhang</a> (zhangyaobin@bupt.edu.cn) and Weihong Deng for questions about the database.
+</div>
+</dd>
+<br />
+</dl>
+</div>
+</body></html>
